@@ -1,77 +1,72 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 
-    <LinearLayout
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        xmlns:tools="http://schemas.android.com/tools"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#121212"
+    android:orientation="vertical"
+
+    >
+
+    <TextView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="#121212"
-        android:orientation="vertical"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="36dp"
+        android:fontFamily="sans-serif-black"
+        android:gravity="center"
+        android:text="MOVIEFLIX"
+        android:textColor="#E50914"
+        android:textSize="18sp" />
 
-        >
-        <TextView
-            android:layout_width="match_parent"
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="sans-serif-light"
+        android:gravity="center"
+        android:text="Browse and favourite your movies"
+        android:textColor="#E0E0E0"
+        android:textSize="14sp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:gravity="center_vertical">
+
+        <EditText
+            android:id="@+id/text_view_search_name"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:textSize="18sp"
-            android:layout_marginTop="36dp"
-            android:fontFamily="sans-serif-black"
-            android:text="MOVIEFLIX"
-            android:gravity="center"
-            android:textColor="#E50914"
-            />
+            android:layout_marginStart="6dp"
+            android:layout_marginEnd="6dp"
+            android:layout_weight="4"
+            android:hint="Search By Movie name"
+            android:maxLines="1"
+            android:textColor="#FFFFFF"
+            android:textColorHint="@color/white"
+            android:textSize="12sp" />
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textSize="14sp"
-            android:fontFamily="sans-serif-light"
-            android:text="Browse and favourite your movies"
-            android:gravity="center"
-            android:textColor="#E0E0E0"
-            />
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center_vertical"
-            android:layout_marginTop="10dp"
-            >
-            <EditText
-                android:id="@+id/text_view_search_name"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="4"
-                android:textColor="#FFFFFF"
-                android:layout_marginStart="6dp"
-                android:layout_marginEnd="6dp"
-                android:hint="Search By Movie name"
-                android:textColorHint="@color/white"
-                android:textSize="12sp"
-                />
-
-            <ImageView
-                android:id="@+id/image_view_favorite_list"
-                android:layout_width="25dp"
-                android:layout_height="25dp"
-                android:layout_weight="1"
-                android:src="@drawable/favourite_filled"
-                />
-        </LinearLayout>
-
-
-
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/recycler_view_movie_list"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
-            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-            tools:listitem="@layout/item_movie"
-            />
-
-
+        <ImageView
+            android:id="@+id/image_view_favorite_list"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_weight="1"
+            android:src="@drawable/favourite_filled" />
     </LinearLayout>
+
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycler_view_movie_list"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        tools:listitem="@layout/item_movie" />
+
+
+</LinearLayout>
 
 

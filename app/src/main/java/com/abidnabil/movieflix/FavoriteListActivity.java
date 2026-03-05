@@ -35,7 +35,7 @@ public class FavoriteListActivity extends AppCompatActivity {
 
         movieAdapter = new MovieAdapter(favoriteMovieList());
 
-        if (favoriteMovieList().length == 0) {
+        if (movieAdapter.movies.length == 0) {
             noFavTextView.setVisibility(VISIBLE);
         } else {
             noFavTextView.setVisibility(INVISIBLE);
@@ -71,4 +71,6 @@ public class FavoriteListActivity extends AppCompatActivity {
         movieAdapter.movies = favoriteMovieList();
         movieAdapter.notifyDataSetChanged();
     }
+
+
 }
