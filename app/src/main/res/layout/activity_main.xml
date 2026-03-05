@@ -32,17 +32,35 @@
             android:textColor="#E0E0E0"
             />
 
-        <EditText
-            android:id="@+id/text_view_search_name"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textColor="#FFFFFF"
-            android:layout_marginStart="6dp"
-            android:layout_marginEnd="6dp"
-            android:hint="Search By Movie name"
-            android:textColorHint="@color/white"
-            android:textSize="12sp"
-            />
+            android:gravity="center_vertical"
+            android:layout_marginTop="10dp"
+            >
+            <EditText
+                android:id="@+id/text_view_search_name"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="4"
+                android:textColor="#FFFFFF"
+                android:layout_marginStart="6dp"
+                android:layout_marginEnd="6dp"
+                android:hint="Search By Movie name"
+                android:textColorHint="@color/white"
+                android:textSize="12sp"
+                />
+
+            <ImageView
+                android:id="@+id/image_view_favorite_list"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:layout_weight="1"
+                android:src="@drawable/favourite_filled"
+                />
+        </LinearLayout>
+
+
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recycler_view_movie_list"

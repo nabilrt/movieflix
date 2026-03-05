@@ -75,9 +75,11 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.MovieViewHol
                     if(favoriteMovies.contains(movies[adapterPosition].id)){
                         favoriteMovies.remove(Integer.valueOf(movies[adapterPosition].id));
                         isFavorite.setImageResource(R.drawable.white_heart);
+
                     }else{
                         favoriteMovies.add(movies[adapterPosition].id);
                         isFavorite.setImageResource(R.drawable.favourite_filled);
+
                     }
                 }
             });

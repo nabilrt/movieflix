@@ -1,9 +1,12 @@
 package com.abidnabil.movieflix;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.view.View;
 import android.widget.EditText;
+import android.widget.ImageView;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.RecyclerView;
@@ -15,6 +18,8 @@ public class MainActivity extends AppCompatActivity {
     RecyclerView moviesList;
     EditText searchText;
 
+    ImageView favoriteListButton;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -22,9 +27,17 @@ public class MainActivity extends AppCompatActivity {
 
         moviesList = findViewById(R.id.recycler_view_movie_list);
         searchText = findViewById(R.id.text_view_search_name);
+        favoriteListButton = findViewById(R.id.image_view_favorite_list);
 
         MovieAdapter movieAdapter = new MovieAdapter(AppData.movies);
 
+        setupOnClickListeners(movieAdapter);
+
+
+        moviesList.setAdapter(movieAdapter);
+    }
+
+    public void setupOnClickListeners(MovieAdapter movieAdapter) {
         searchText.addTextChangedListener(new TextWatcher() {
             @Override
             public void afterTextChanged(Editable s) {
@@ -60,7 +73,14 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
-        moviesList.setAdapter(movieAdapter);
+
+        favoriteListButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, FavoriteListActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 
     @Override
