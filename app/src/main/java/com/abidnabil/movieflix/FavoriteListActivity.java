@@ -1,8 +1,12 @@
 package com.abidnabil.movieflix;
 
+import static android.view.View.INVISIBLE;
+import static android.view.View.VISIBLE;
+
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -17,6 +21,7 @@ public class FavoriteListActivity extends AppCompatActivity {
     RecyclerView favoriteList;
     ImageView backButton;
     MovieAdapter movieAdapter;
+    TextView noFavTextView;
 
 
     @Override
@@ -25,11 +30,18 @@ public class FavoriteListActivity extends AppCompatActivity {
         setContentView(R.layout.activity_favorite_list);
 
         favoriteList = findViewById(R.id.recycler_view_favorite_movie_list);
-        backButton=findViewById(R.id.image_view_back_from_favorites);
+        backButton = findViewById(R.id.image_view_back_from_favorites);
+        noFavTextView = findViewById(R.id.text_view_no_favorites);
 
         movieAdapter = new MovieAdapter(favoriteMovieList());
 
-        favoriteList.setAdapter(movieAdapter);
+        if (favoriteMovieList().length == 0) {
+            noFavTextView.setVisibility(VISIBLE);
+        } else {
+            noFavTextView.setVisibility(INVISIBLE);
+            favoriteList.setAdapter(movieAdapter);
+        }
+
 
         backButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -56,7 +68,7 @@ public class FavoriteListActivity extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
-        movieAdapter.movies=favoriteMovieList();
+        movieAdapter.movies = favoriteMovieList();
         movieAdapter.notifyDataSetChanged();
     }
 }
