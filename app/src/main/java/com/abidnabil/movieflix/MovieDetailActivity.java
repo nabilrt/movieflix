@@ -32,7 +32,6 @@ public class MovieDetailActivity extends AppCompatActivity {
     ImageView backButton;
     Button goToYouTubeButton;
     Movie movieItem;
-
     RatingBar movieRatingBar;
 
     @Override
@@ -40,7 +39,8 @@ public class MovieDetailActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_movie_detail);
         findViews();
-        getLifecycle().addObserver(youTubePlayerView);
+        //It can be used when app is not required to be published in play store
+        //getLifecycle().addObserver(youTubePlayerView);
 
         Intent intent = getIntent();
         int movieId = intent.getIntExtra("MOVIE_ID", 0);
@@ -122,5 +122,11 @@ public class MovieDetailActivity extends AppCompatActivity {
                 }
             }
         });
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        youTubePlayerView.release();
     }
 }
