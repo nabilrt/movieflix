@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="12dp"
+    app:cardBackgroundColor="#1C1C1E"
+    app:cardCornerRadius="8dp"
+    app:cardElevation="4dp">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="4dp">
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/card_view_movie_image_container"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="4dp"
+            app:cardCornerRadius="4dp">
+
+            <ImageView
+                android:id="@+id/image_view_movie_poster"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                tools:contentDescription="Forrest Gump Movie"
+                tools:src="@drawable/forrest_gump" />
+
+        </androidx.cardview.widget.CardView>
+
+        <LinearLayout
+            android:id="@+id/layout_movie_description"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="6dp"
+            android:layout_toEndOf="@id/card_view_movie_image_container"
+            android:orientation="vertical"
+
+            >
+
+            <TextView
+                android:id="@+id/text_view_movie_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif-black"
+                android:textColor="#FFFFFF"
+                android:textSize="14sp"
+                tools:text="Forrest Gump"
+
+                />
+
+            <TextView
+                android:id="@+id/text_view_movie_description"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="#B5B5B5"
+                tools:text="The life journey of Forrest Gump, a simple man who unknowingly influences major historical events while pursuing love and happiness."
+                tools:textSize="11sp" />
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/layout_movie_description"
+            android:layout_marginStart="6dp"
+            android:layout_toEndOf="@id/card_view_movie_image_container"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <RatingBar
+                android:id="@+id/rating_bar_movie_rating"
+                style="@style/Widget.AppCompat.RatingBar.Small"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:progressTint="#FFC107"
+                tools:rating="3.5" />
+
+            <Space
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_weight="1" />
+
+            <ImageView
+                android:id="@+id/image_view_is_favorite"
+                android:layout_width="10dp"
+                android:layout_height="10dp"
+                android:layout_marginEnd="10dp"
+                android:src="@drawable/white_heart"
+
+                />
+
+
+        </LinearLayout>
+
+
+    </RelativeLayout>
+
+</androidx.cardview.widget.CardView>
